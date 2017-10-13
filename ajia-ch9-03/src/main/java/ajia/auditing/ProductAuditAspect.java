@@ -24,9 +24,11 @@ public class ProductAuditAspect {
 	public Object productUpdateAudit(ProceedingJoinPoint pjp, InventoryService invService, Product product, int quantity) throws Throwable {
 //		System.out.println( AopContext.currentProxy().getClass() );
 		
+		System.out.println("around before: productUpdateAudit, product: " + product.getName() + ", quantity: " + quantity);
+		
 		Object obj =  pjp.proceed();
 		
-		System.out.println("productUpdateAudit, product: " + product.getName() + ", quantity: " + quantity);
+		System.out.println("around after: productUpdateAudit, product: " + product.getName() + ", quantity: " + quantity);
 		
 		return obj;
 	}
